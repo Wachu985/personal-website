@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectsView extends StatelessWidget {
   const ProjectsView({super.key});
@@ -39,12 +40,14 @@ class ProjectsView extends StatelessWidget {
                 children: [
                   FadeInLeft(
                     delay: const Duration(milliseconds: 500),
-                    child: const Padding(
-                      padding: EdgeInsets.only(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
                           top: 10.0, bottom: 10.0, right: 10.0, left: 20),
                       child: ProjectsWidget(
                         imageProject: 'assets/universo.png',
                         title: "UniversoSeries",
+                        onTap: () async => await launchUrl(Uri.parse(
+                            'https://github.com/Wachu985/UniversoSeries')),
                         description:
                             "It is a project that allows the viewing of series on the server, featuring an intuitive and minimalist interface.",
                       ),
@@ -52,11 +55,13 @@ class ProjectsView extends StatelessWidget {
                   ),
                   FadeInDown(
                     delay: const Duration(milliseconds: 800),
-                    child: const Padding(
-                      padding: EdgeInsets.all(10.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
                       child: ProjectsWidget(
                         imageProject: 'assets/cap.png',
                         title: "Flutte Wireguard Vpn",
+                        onTap: () async => await launchUrl(Uri.parse(
+                            'https://github.com/Wachu985/flutter_wireguard_vpn')),
                         description:
                             "It is a Flutter library that uses Dart to enable Android applications to connect with the WireGuard VPN protocol.",
                       ),
@@ -64,12 +69,14 @@ class ProjectsView extends StatelessWidget {
                   ),
                   FadeInRight(
                     delay: const Duration(milliseconds: 1000),
-                    child: const Padding(
-                      padding: EdgeInsets.all(10.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
                       child: ProjectsWidget(
                         imageProject:
                             'assets/38404a9f-b4f3-4dbd-b569-ccab896b9d1d.jpg',
                         title: "Forzar 4G",
+                        onTap: () async => await launchUrl(
+                            Uri.parse('https://github.com/Wachu985/Forzar_4G')),
                         description:
                             "It is a project that allows mobile devices to force a 4G connection, thereby improving connection quality.",
                       ),
@@ -79,9 +86,11 @@ class ProjectsView extends StatelessWidget {
               ),
               FadeInUp(
                 delay: const Duration(milliseconds: 1200),
-                child: const ProjectsWidget(
+                child: ProjectsWidget(
                   imageProject: 'assets/flutter_04.png',
                   title: "Flutter Ecomerce",
+                  onTap: () async => await launchUrl(
+                      Uri.parse('https://github.com/Wachu985/Rubi-Proyect')),
                   description:
                       "It is an e-commerce store with a backend in NestJS and a mobile app with its web, allowing for retail sales from a store.",
                 ),
@@ -89,12 +98,14 @@ class ProjectsView extends StatelessWidget {
             ] else ...[
               FadeInLeft(
                 delay: const Duration(milliseconds: 500),
-                child: const Padding(
-                  padding: EdgeInsets.only(
+                child: Padding(
+                  padding: const EdgeInsets.only(
                       top: 5.0, bottom: 5.0, right: 10.0, left: 20),
                   child: ProjectsWidget(
                     imageProject: 'assets/universo.png',
                     title: "UniversoSeries",
+                    onTap: () async => await launchUrl(Uri.parse(
+                        'https://github.com/Wachu985/UniversoSeries')),
                     description:
                         "It is a project that allows the viewing of series on the server, featuring an intuitive and minimalist interface.",
                   ),
@@ -102,12 +113,14 @@ class ProjectsView extends StatelessWidget {
               ),
               FadeInDown(
                 delay: const Duration(milliseconds: 800),
-                child: const Padding(
-                  padding: EdgeInsets.only(
+                child: Padding(
+                  padding: const EdgeInsets.only(
                       top: 5.0, bottom: 5.0, right: 10.0, left: 20),
                   child: ProjectsWidget(
                     imageProject: 'assets/cap.png',
                     title: "Flutte Wireguard Vpn",
+                    onTap: () async => await launchUrl(Uri.parse(
+                        'https://github.com/Wachu985/flutter_wireguard_vpn')),
                     description:
                         "It is a Flutter library that uses Dart to enable Android applications to connect with the WireGuard VPN protocol.",
                   ),
@@ -125,17 +138,19 @@ class ProjectsWidget extends StatelessWidget {
   final String imageProject;
   final String description;
   final String title;
+  final Function()? onTap;
   const ProjectsWidget({
     super.key,
     required this.imageProject,
     required this.description,
     required this.title,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: !ResponsiveBreakpoints.of(context).isMobile ? 338 : 330,
+      height: !ResponsiveBreakpoints.of(context).isMobile ? 339 : 330,
       width: 400,
       child: Card(
         elevation: 5,
@@ -166,7 +181,7 @@ class ProjectsWidget extends StatelessWidget {
                   !ResponsiveBreakpoints.of(context).isMobile ? 5.0 : 0),
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(elevation: 3),
-                  onPressed: () {},
+                  onPressed: onTap,
                   child: const Text("Read More")),
             )
           ],

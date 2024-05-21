@@ -35,59 +35,51 @@ class AboutView extends StatelessWidget {
             FadeInUp(
               delay: const Duration(milliseconds: 600),
               child: Padding(
-                padding: const EdgeInsets.only(left: 30.0, right: 30.0),
-                child: !ResponsiveBreakpoints.of(context).isMobile
-                    ? Row(
-                        children: [
-                          SizedBox(
-                            height: 200,
-                            width: 200,
-                            child: SvgPicture.asset(
-                              'assets/developerImage.svg',
-                              semanticsLabel: 'Acme Logo',
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 13.0),
-                              child: Text(
-                                "I'm a self-taught web developer and Mobile App Developer with experience in designing new features from ideation to production, implementation of wireframes and design flows into high performance software applications. I take into consideration the user experience while writing reusable and efficient code. I passionately combine good design, technology, and innovation in all my projects, which I like to accompany from the first idea to release.Currently, I'm focused on the backend development.",
-                                textAlign: TextAlign.justify,
-                                style: GoogleFonts.istokWeb(fontSize: 18),
+                  padding: const EdgeInsets.only(left: 30.0, right: 30.0),
+                  child: !ResponsiveBreakpoints.of(context).isMobile
+                      ? Row(
+                          children: [
+                            SizedBox(
+                              height: 200,
+                              width: 200,
+                              child: SvgPicture.asset(
+                                'assets/developerImage.svg',
+                                semanticsLabel: 'Acme Logo',
                               ),
                             ),
-                          ),
-                        ],
-                      )
-                    : Wrap(
-                        alignment: WrapAlignment.center,
-                        runAlignment: WrapAlignment.center,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: 200,
-                            width: 200,
-                            child: SvgPicture.asset(
-                              'assets/developerImage.svg',
-                              semanticsLabel: 'Acme Logo',
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 13.0),
-                              child: Text(
-                                "I'm a self-taught web developer and Mobile App Developer with experience in designing new features from ideation to production, implementation of wireframes and design flows into high performance software applications. I take into consideration the user experience while writing reusable and efficient code. I passionately combine good design, technology, and innovation in all my projects, which I like to accompany from the first idea to release.Currently, I'm focused on the backend development.",
-                                textAlign: TextAlign.justify,
-                                style: GoogleFonts.istokWeb(fontSize: 18),
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 13.0),
+                                child: Text(
+                                  "I'm a self-taught web developer and Mobile App Developer with experience in designing new features from ideation to production, implementation of wireframes and design flows into high performance software applications. I take into consideration the user experience while writing reusable and efficient code. I passionately combine good design, technology, and innovation in all my projects, which I like to accompany from the first idea to release.Currently, I'm focused on the backend development.",
+                                  textAlign: TextAlign.justify,
+                                  style: GoogleFonts.istokWeb(fontSize: 18),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-              ),
+                          ],
+                        )
+                      : Container()),
             ),
+            if (ResponsiveBreakpoints.of(context).isMobile) ...[
+              SizedBox(
+                height: 200,
+                width: 200,
+                child: SvgPicture.asset(
+                  'assets/developerImage.svg',
+                  semanticsLabel: 'Acme Logo',
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 13.0, right: 13),
+                child: Text(
+                  "I'm a self-taught web developer and Mobile App Developer with experience in designing new features from ideation to production, implementation of wireframes and design flows into high performance software applications. I take into consideration the user experience while writing reusable and efficient code. I passionately combine good design, technology, and innovation in all my projects, which I like to accompany from the first idea to release.Currently, I'm focused on the backend development.",
+                  textAlign: TextAlign.justify,
+                  style: GoogleFonts.istokWeb(fontSize: 18),
+                ),
+              ),
+            ],
             if (!ResponsiveBreakpoints.of(context).isMobile) ...[
               FadeIn(
                 delay: const Duration(milliseconds: 700),
