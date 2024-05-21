@@ -135,7 +135,7 @@ class ProjectsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: !ResponsiveBreakpoints.of(context).isMobile ? 336 : 330,
+      height: !ResponsiveBreakpoints.of(context).isMobile ? 338 : 330,
       width: 400,
       child: Card(
         elevation: 5,

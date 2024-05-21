@@ -41,13 +41,12 @@ class MyApp extends StatelessWidget {
                   context,
                   conditionalValues: [
                     const Condition.equals(name: MOBILE, value: 450),
-                    const Condition.between(start: 451, end: 800, value: 1500),
-                    const Condition.between(start: 800, end: 1100, value: 1500),
+                    const Condition.between(start: 451, end: 800, value: 1600),
+                    const Condition.between(start: 800, end: 1100, value: 1600),
                     const Condition.between(
-                        start: 1000, end: 1200, value: 1500),
+                        start: 1000, end: 1200, value: 1600),
                     const Condition.between(
-                        start: 1200, end: 1920, value: 1500),
-                    const Condition.equals(name: DESKTOP, value: 1500),
+                        start: 1200, end: 1920, value: 1600),
                   ],
                 ).value,
                 child: child!,

@@ -48,6 +48,7 @@ class AboutView extends StatelessWidget {
                             ),
                           ),
                           Expanded(
+                            flex: 1,
                             child: Padding(
                               padding: const EdgeInsets.only(left: 13.0),
                               child: Text(
@@ -73,6 +74,7 @@ class AboutView extends StatelessWidget {
                             ),
                           ),
                           Expanded(
+                            flex: 1,
                             child: Padding(
                               padding: const EdgeInsets.only(left: 13.0),
                               child: Text(

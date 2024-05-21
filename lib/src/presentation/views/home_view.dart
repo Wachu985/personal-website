@@ -44,7 +44,7 @@ class ForWebHome extends StatelessWidget {
           height: size.height,
           width: size.width,
           connectDots: false,
-          numberOfParticles: 100,
+          numberOfParticles: 50,
         ),
         Align(
           alignment: AlignmentDirectional.center,
